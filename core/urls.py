@@ -1,6 +1,13 @@
 from django.urls import path
-from .views import index
+from . import views
 
 urlpatterns = [
-    path('', index, name='index'),
+  path("", views.index),
+  path("create/", views.create),
+  path("read/", views.read),
+  path("main/", views.main),
+  path("sub/", views.sub),
+  path("three/", views.three),
+  path("four/", views.four),
+  path("delete/", views.delete)
 ]

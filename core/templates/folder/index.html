@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navigation.css' %}">
+  <link rel="stylesheet" href="{% static 'css/side.css' %}">
+  
+</head>
+<body>
+<header>
+  <div class="headers">
+    <form class="search_form" onsubmit="return false;">
+      <input class="search_area" type="text" placeholder="Search">
+      <i class="fa-sharp fa-solid fa-magnifying-glass" id="search_button"></i>
+      <!-- <button class="search-button">Search</button> -->
+    </form>
+    <img src="{% static 'image/real logo.png'%}"> 
+</div>
+    <nav>
+      <div class="title_area">
+        <div class="title"><a href="">Six MAN mini project</a></div>
+        <div class="explain">Liverpool manager Jurgen Klopp has said 
+          he will not leave the club unless he is forced to, 
+          and hinted at changes at Anfield during the summer.
+          The German's comments come amid a run of poor form for the Reds, 
+          who are ninth in the Premier League and 10 points off a top-four spot.</div>
+      </div>
+      <ul>
+        <li class="menu"><a href="/main/">Menu</a></li>
+        <li class="content"><a href="/sub/">Content</a></li>
+        <li class="something"><a href="/three/">something</a></li>
+        <li class="about"><a href="/four/">About us</a></li>
+      </ul>
+    </nav>
+  </header>
+    <div class="main_content">
+      <span class="tag"> 
+        {% block main_area %}
+        {% endblock %} </span>
+    </div>
+  <div class="side_bar">
+    사이드 바
+  <form action="/create/" method="get">
+  <input type="text" placeholder="name" name="name">
+  <input type="age" name="age">
+  <button type="submit">전송</button>
+  </form>
+  <a href="/read/">조회</a>
+    {% for human in humans %}
+    <p>{{human.name}}{{human.age}}
+    </p>
+    <button type="button" onclick="location.href='/delete/'">취소</button>
+    {% endfor %}
+  </div>
+
+  <script src="https://kit.fontawesome.com/66e5a82cea.js" crossorigin="anonymous"></script>
+</body>
+</html>

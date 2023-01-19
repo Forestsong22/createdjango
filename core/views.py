@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import human
+from .models import human, color
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -26,9 +26,13 @@ def create(request) :
 
 def read(request):
   humans = human.objects.all()
+  colors = color.objects.all()
+  
   context ={
-    "humans" : humans
+    "humans" : humans,
+    "colors" : colors,
   }
+  
   return render(request, "folder/index.html", context)
 
 def delete(request):

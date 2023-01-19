@@ -24,7 +24,7 @@
 </div>
     <nav>
       <div class="title_area">
-        <div class="title"><a href="">Six MAN mini project</a></div>
+        <div class="title"><a href="/">Six MAN mini project</a></div>
         <div class="explain">Liverpool manager Jurgen Klopp has said 
           he will not leave the club unless he is forced to, 
           and hinted at changes at Anfield during the summer.
@@ -53,9 +53,14 @@
   </form>
   <a href="/read/">조회</a>
     {% for human in humans %}
+    {% for color in colors %}
     <p>{{human.name}}{{human.age}}
     </p>
+    <p>
+      {{color.red}}{{color.green}}{{color.blue}}
+    </p>
     <button type="button" onclick="location.href='/delete/'">취소</button>
+    {% endfor %}
     {% endfor %}
   </div>
 
